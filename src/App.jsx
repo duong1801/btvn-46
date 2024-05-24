@@ -14,7 +14,6 @@ function App() {
 	useEffect(() => {
 		const getUserMetadata = async () => {
 			const domain = "dev-camw2msxs5buo2dw.us.auth0.com"
-			console.log("object")
 			try {
 				const accessToken = await getAccessTokenSilently({
 					authorizationParams: {
@@ -53,12 +52,7 @@ function App() {
 					<h2>{user?.name}</h2>
 					<p>{user?.email}</p>
 					<p>{user.sub}</p>
-					<h3>User Metadata</h3>
-					{userMetadata ? (
-						<pre>{JSON.stringify(userMetadata, null, 2)}</pre>
-					) : (
-						"No user metadata defined"
-					)}
+
 					<button onClick={() => logout({ returnTo: window.location.origin })}>
 						Log Out
 					</button>
